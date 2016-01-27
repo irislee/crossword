@@ -1,0 +1,29 @@
+body {
+  text-align: center;
+  margin-top: 100px; }
+
+input {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  text-align: center; }
+
+input:focus {
+  outline: none;
+  border: 1px solid pink;
+  /*box-shadow: 0 0 10px #719ECE;*/ }
+
+#nextword {
+  width: 100px;
+  /*text-align: center;*/
+  /*display: bwlock;*/ }
+
+button {
+  width: 100px;
+  display: block;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+/*# sourceMappingURL=main.css.map */
