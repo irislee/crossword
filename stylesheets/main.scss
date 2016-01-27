@@ -1,7 +1,7 @@
 body {
   text-align: center;
   margin-top: 100px;
-  background-image: url("../assets/gridme.png");
+  background-image: url("../assets/stardust.png");
 }
 input {
   width: 30px;
@@ -10,14 +10,9 @@ input {
   text-align: center;
 }
 input:focus {
-    outline: none;
-    border:1px solid pink;
-    /*box-shadow: 0 0 10px #719ECE;*/
-}
-#nextword {
-  width: 100px;
-  /*text-align: center;*/
-  /*display: bwlock;*/
+  outline: none;
+  border:1px solid pink;
+  /*box-shadow: 0 0 10px #719ECE;*/
 }
 button {
   width: 100px;
@@ -26,10 +21,16 @@ button {
   display:flex;
   justify-content:center;
   align-items:center;
+  background-color: #ffffff;
+  border: 1px solid black;
 }
-
 #buttonArea {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#nextword {
+  width: 100px;
+  /*text-align: center;*/
+  /*display: bwlock;*/
 }
