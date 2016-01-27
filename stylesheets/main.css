@@ -26,4 +26,9 @@ button {
   justify-content: center;
   align-items: center; }
 
+#buttonArea {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 /*# sourceMappingURL=main.css.map */
