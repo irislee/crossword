@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <form name="loginBox" target="#here" method="post">
+      <input name="username" type="text" /><br />
+      <input name="password" type="password" />
+      <input type="submit" />
+  </form>
+
+  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript">
+
+  $("input").keypress(function(event) {
+      if (event.which == 13) {
+          // event.preventDefault();
+          $("form").submit();
+      }
+  });
+    // // Using jQuery.
+
+    // $(function() {
+    //     $('form').each(function() {
+    //         $(this).find('input').keypress(function(e) {
+    //             // Enter pressed?
+    //             if(e.which == 10 || e.which == 13) {
+    //                 this.form.submit();
+    //             }
+    //         });
+
+    //         $(this).find('input[type=submit]').hide();
+    //     });
+    // });
+    </script>
+</body>
+</html>

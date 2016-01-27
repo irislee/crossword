@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crossword Trainer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+  <style>
+    body {
+      text-align: center;
+    }
+    input {
+      width: 30px;
+      height: 30px;
+      margin-right: 5px;
+      text-align: center;
+    }
+    input:focus {
+        outline: none;
+        border:1px solid pink;
+        /*box-shadow: 0 0 10px #719ECE;*/
+    }
+    #nextword {
+      width: 100px;
+      /*text-align: center;*/
+      /*display: bwlock;*/
+    }
+    button {
+      width: 100px;
+      display: block;
+      text-align: center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+  </style>
+</head>
+<body>
+
+  <p id="clue"></p>
+
+  <form autocomplete="off">
+  </form>
+
+  <p id="message"></p>
+  
+  <div id="buttonArea" style="display:flex;justify-content:center;align-items:center;">
+    <!-- <div style="width:100px;"></div> -->
+    <button onclick="beginGame(i)">Begin Game</button>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src='js/crossword.js'></script>
+</body>
+</html>
