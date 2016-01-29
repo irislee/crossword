@@ -1,10 +1,10 @@
 var words = [
-  {word: 'oreo',    clue: 'milk\'s favorite cookie'},
-  {word: 'hmo',     clue: 'aetna offering'},
-  {word: 'utne',    clue: '___ reader'},
-  {word: 'egos',    clue: 'they benefit from boosters'},
-  {word: 'anti',    clue: 'one in opposition'},
-  {word: 'kilo',    clue: 'drug bust quantity, casually'}
+  {word: 'oreo',    clue: 'milk\'s favorite cookie'}
+  // {word: 'hmo',     clue: 'aetna offering'},
+  // {word: 'utne',    clue: '___ reader'},
+  // {word: 'egos',    clue: 'they benefit from boosters'},
+  // {word: 'anti',    clue: 'one in opposition'},
+  // {word: 'kilo',    clue: 'drug bust quantity, casually'}
 ];
 
 var numWords  = words.length;
