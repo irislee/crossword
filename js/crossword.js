@@ -93,9 +93,13 @@ function userHitsReturn(input, id){
 
 
 function nextLetter(currentLetterInput){  
-  // key codes are A through Z OR right arrow key, move one input to the right 
+  // user inputs a key A through Z OR right arrow key, move one input to the right 
   if (currentLetterInput !== "" && event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode == 39){
     $(currentLetterInput).focusout().next().focus();
+  } 
+  // user inputs left arrow key OR delete key, move one input to the left
+  else if (currentLetterInput !== "" && event.keyCode == 37 || event.keyCode == 8){
+    $(currentLetterInput).focusout().prev().focus();
   }
 }
 
