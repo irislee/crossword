@@ -32,9 +32,9 @@ function beginGame(i){
   currentWord       = words[current].word;
   currentWordLength = currentWord.length;
 
-  $('form').html(''); // clears inputs off page
-  message.html('');   // clears message off page
-  buttonArea.html('');
+  $('form').html('');   // clears inputs off page
+  message.html('');     // clears message off page
+  buttonArea.html('');  // clears button area
 
   $('#clue').html(currentClue); // show current clue
 
@@ -79,12 +79,12 @@ function isWordRight(){
     $('form').children().attr('readOnly', 'true');
     message.html('yay! next word?');
     buttonArea.append(nextButton);
-    keyClick('#nextword');
+    userHitsReturn('input', '#nextword');
   }
 }
 
-function keyClick(id){
-  $('input').keyup(function(event){
+function userHitsReturn(input, id){
+  $(input).keyup(function(event){
     if(event.keyCode == 13){
         $(id).click();
     }
@@ -93,11 +93,6 @@ function keyClick(id){
 
 
 function nextLetter(currentLetterInput){  
-  // if (currentLetterInput !== "" && event.keyCode == 9 && $('input').last()){
-  //   $(currentLetterInput).focusout().first().focus();
-  //   // console.log('this is first currentLetterInput: ' + $(currentLetterInput).focusout().first().focus());
-  // }
-
   // key codes are A through Z OR right arrow key, move one input to the right 
   if (currentLetterInput !== "" && event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode == 39){
     $(currentLetterInput).focusout().next().focus();
@@ -108,7 +103,7 @@ function nextWord(){
   if (i === numWords - 1){
     message.html('you have studied all the words.');
     buttonArea.html('').append(playAgain);
-    keyClick('#playagain');
+    userHitsReturn('input','#playagain');
       i = 0;
   } else {
     i++;
@@ -125,3 +120,6 @@ function inputLetter(){
     isWordRight();  
   } 
 }
+
+
+userHitsReturn('body', '#beginbutton');
