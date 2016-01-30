@@ -7,6 +7,8 @@ $yellow: #fec97a;
 $darkgrey: #a6a6a6;
 $graphite: #5b5a4e;
 
+@import url(https://fonts.googleapis.com/css?family=Architects+Daughter);
+
 body {
   background-attachment: fixed;
   background-color: $pink;
@@ -28,6 +30,8 @@ h1 {
 input {
   background-color: $beige;
   border: 3px solid $outline;
+  font-family: 'Architects Daughter', cursive;
+  text-transform: uppercase;
   color: $graphite;
   height: 30px;
   margin-right: 5px;

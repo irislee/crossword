@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Architects+Daughter);
 body {
   background-attachment: fixed;
   background-color: #fbc8c1;
@@ -17,6 +18,8 @@ h1 {
 input {
   background-color: #fff3d9;
   border: 3px solid #f2e4db;
+  font-family: 'Architects Daughter', cursive;
+  text-transform: uppercase;
   color: #5b5a4e;
   height: 30px;
   margin-right: 5px;
