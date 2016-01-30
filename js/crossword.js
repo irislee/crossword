@@ -25,6 +25,7 @@ var nextButton        = '<button id="nextword" onclick="nextWord()">Next</button
 var message           = $('#message');
 var playAgain         = '<button id="playagain" onclick="beginGame(i)">Play again?</button>';
 var buttonArea        = $('#buttonArea');
+var hintButton        = '<button id="hint" onclick="needAHint()">hint</button>'
 
 function beginGame(i){
   var current       = (randNum + prime * i) % numWords;
@@ -43,8 +44,16 @@ function beginGame(i){
     $('form').append(inputHTML1 + j + inputHTML2);
   };
 
+  buttonArea.html(hintButton);
+
   $('#0').focus();
   $('form').children().attr('onclick', 'value=""');
+}
+
+function needAHint(){
+  var randomIndex = Math.floor((Math.random() * currentWordLength));
+  $('#' + randomIndex).val(currentWord[randomIndex]);
+  buttonArea.html('');
 }
 
 function isWordComplete(){
@@ -78,6 +87,7 @@ function isWordRight(){
   } else {
     $('form').children().attr('readOnly', 'true');
     message.html('yay! next word?');
+    buttonArea.html(''); 
     buttonArea.append(nextButton);
     userHitsReturn('input', '#nextword');
   }
