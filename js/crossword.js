@@ -48,15 +48,15 @@ function beginGame(i){
 }
 
 function isWordComplete(){
-  var arr = [];
+  var userWordLength = 0;
 
   for (var i = 0; i < currentWordLength; i++){
     if ($('#' + i)[0].value !== ""){
-      arr.push('hi');
+      userWordLength++;
     }
   }
 
-  if (arr.length == currentWordLength){
+  if (userWordLength == currentWordLength){
     return true;
   } else {
     return false;
@@ -114,6 +114,10 @@ function nextWord(){
     i++;
     beginGame(i); 
   } 
+}
+
+function clearLetter(currentLetterInput){
+  currentLetterInput.attr('value', '""');
 }
 
 function inputLetter(){
