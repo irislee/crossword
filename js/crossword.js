@@ -32,9 +32,9 @@ function beginGame(i){
   currentWord       = words[current].word;
   currentWordLength = currentWord.length;
 
-  $('form').html('');   // clears inputs off page
-  message.html('');     // clears message off page
-  buttonArea.html('');  // clears button area
+  $('form').html('');           // clears inputs off page
+  message.html('');             // clears message off page
+  buttonArea.html('');          // clears button area
 
   $('#clue').html(currentClue); // show current clue
 
@@ -91,7 +91,6 @@ function userHitsReturn(input, id){
   });
 }
 
-
 function nextLetter(currentLetterInput){  
   // user inputs a key A through Z OR right arrow key, move one input to the right 
   if (currentLetterInput !== "" && event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode == 39){
@@ -124,6 +123,5 @@ function inputLetter(){
     isWordRight();  
   } 
 }
-
 
 userHitsReturn('body', '#beginbutton');
