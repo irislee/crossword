@@ -26,7 +26,7 @@ var message           = $('#message');
 var playAgain         = '<button id="playagain" onclick="beginGame(i)">Play again?</button>';
 var buttonArea        = $('#buttonArea');
 var hintButton        = '<button id="hint" onclick="needAHint()">hint</button>'
-var revealButton      = '<button id="reveal" onclick="revealWord()">reveal word</button>'
+var revealButton      = '<button id="reveal" onclick="revealWord()">reveal</button>'
 
 function beginGame(i){
   var current       = (randNum + prime * i) % numWords;
@@ -58,10 +58,11 @@ function needAHint(){
 }
 
 function revealWord(){
-  var currentLetter = $('#'+ b);
   for (var b = 0; b < currentWordLength; b++){
+    var currentLetter = $('#'+ b);
     currentLetter.val(currentWord[b]);
   }
+  buttonArea.html('').append(nextButton);
 }
 
 function isWordComplete(){

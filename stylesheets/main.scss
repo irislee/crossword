@@ -91,6 +91,16 @@ button {
   color: $beige;
 }
 
+#hint:hover {
+  background-color: $yellow;
+  color: $graphite;
+}
+
+#reveal:hover {
+  background-color: $yellow;
+  color: red;
+}
+
 @media (min-width: 768px) {
   body {
     background-position: center top; 
