@@ -4,7 +4,13 @@ var words = [
   {word: 'utne',    clue: '___ reader'},
   {word: 'egos',    clue: 'they benefit from boosters'},
   {word: 'anti',    clue: 'one in opposition'},
-  {word: 'kilo',    clue: 'drug bust quantity, casually'}
+  {word: 'edam',    clue: 'Dutch cheese'},
+  {word: 'htest',   clue: 'thermonuclear experiment of the \'50s'},
+  {word: 'nog',     clue: 'Yule quaff'},
+  {word: 'hst',     clue: 'F.D.R.\'s successor'},
+  {word: 'tre',     clue: 'one more than due'},
+  {word: 'apo',     clue: 'G.I. address'},
+  {word: 'ada',     clue: 'Nabakov heroine'}
 ];
 
 var numWords  = words.length;
