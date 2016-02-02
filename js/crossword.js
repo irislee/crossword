@@ -52,16 +52,39 @@ function beginGame(i){
 }
 
 function needAHint(){
-  var randomIndex = Math.floor((Math.random() * currentWordLength));
-  $('#' + randomIndex).val(currentWord[randomIndex]);
-  buttonArea.html('').append(revealButton);
+  // var randomIndex = Math.floor((Math.random() * currentWordLength));
+  // $('#' + randomIndex).val(currentWord[randomIndex]).attr('style', 'font-family: Courier; color: red');
+  // buttonArea.html('').append(revealButton);
+
+  // for (var i = 0; i < currentWordLength; i++){
+  //   if ($('#' + i)[0].value !== ""){
+  //     userWordLength++;
+  //   }
+  // }
+
+  // if word is empty, show random letter
+  if (isWordComplete() == false) {
+    var randomIndex = Math.floor((Math.random() * currentWordLength));
+    $('#' + randomIndex).val(currentWord[randomIndex]).attr('style', 'font-family: Courier; color: red');
+    buttonArea.html('').append(revealButton);
+  } else {
+      for (var k = 0; k < currentWordLength; k++){
+        var currentLetter = $('#'+ k).val();
+        if (currentLetter.toLowerCase() != currentWord[k]){
+          $('#' + k).val(currentWord[k]).attr('style', 'font-family: Courier; color: red');
+          buttonArea.html('').append(revealButton);
+          break;
+      }
+    }
+  }
 }
 
 function revealWord(){
   for (var b = 0; b < currentWordLength; b++){
     var currentLetter = $('#'+ b);
-    currentLetter.val(currentWord[b]);
+    currentLetter.val(currentWord[b]).attr('style', 'font-family: Courier; color: red');
   }
+  message.html('');
   buttonArea.html('').append(nextButton);
 }
 
@@ -96,8 +119,7 @@ function isWordRight(){
   } else {
     $('form').children().attr('readOnly', 'true');
     message.html('yay! next word?');
-    buttonArea.html(''); 
-    buttonArea.append(nextButton);
+    buttonArea.html('').append(nextButton);
     userHitsReturn('input', '#nextword');
   }
 }
@@ -117,13 +139,13 @@ function nextLetter(currentLetterInput){
   } 
   // user inputs left arrow key OR delete key, move one input to the left
   else if (currentLetterInput !== "" && event.keyCode == 37 || event.keyCode == 8){
-    $(currentLetterInput).focusout().prev().focus();
+    $(currentLetterInput).focusout().prev().focus().val('');
   }
 }
 
 function nextWord(){
   if (i === numWords - 1){
-    message.html('you have studied all the words.');
+    message.html('you have studied all the words!');
     buttonArea.html('').append(playAgain);
     userHitsReturn('input','#playagain');
       i = 0;
@@ -131,10 +153,6 @@ function nextWord(){
     i++;
     beginGame(i); 
   } 
-}
-
-function clearLetter(currentLetterInput){
-  currentLetterInput.attr('value', '""');
 }
 
 function inputLetter(){
