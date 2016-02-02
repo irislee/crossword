@@ -74,7 +74,9 @@ function needAHint(){
 function revealWord(){
   for (var b = 0; b < currentWordLength; b++){
     var currentLetter = $('#'+ b);
-    currentLetter.val(currentWord[b]).attr('style', 'font-family: Courier; color: red');
+    if (currentLetter.val().toLowerCase() != currentWord[b]){
+      currentLetter.val(currentWord[b]).attr('style', 'font-family: Courier; color: red');
+    }
   }
   message.html('');
   buttonArea.html('').append(nextButton);
@@ -131,11 +133,16 @@ function nextLetter(currentLetterInput){
     $(currentLetterInput).focusout().next().focus();
     console.log('one ' + $(currentLetterInput).val());
   } 
-  
   // user inputs left arrow key, move one input to the left
   else if (event.keyCode == 37){
     $(currentLetterInput).focusout().prev().focus();
   }
+
+  // user is focused on a non empty box and inputs A through Z, takes in new key input
+  else if ($(currentLetterInput).focus() && $(currentLetterInput).val() !== "" && event.keyCode >= 65 && event.keyCode <= 90){
+    $(currentLetterInput).val();
+  }
+
 }
 
 function nextWord(){
