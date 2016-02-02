@@ -52,20 +52,12 @@ function beginGame(i){
 }
 
 function needAHint(){
-  // var randomIndex = Math.floor((Math.random() * currentWordLength));
-  // $('#' + randomIndex).val(currentWord[randomIndex]).attr('style', 'font-family: Courier; color: red');
-  // buttonArea.html('').append(revealButton);
-
-  // for (var i = 0; i < currentWordLength; i++){
-  //   if ($('#' + i)[0].value !== ""){
-  //     userWordLength++;
-  //   }
-  // }
 
   // if word is empty, show random letter
   if (isWordComplete() == false) {
     var randomIndex = Math.floor((Math.random() * currentWordLength));
     $('#' + randomIndex).val(currentWord[randomIndex]).attr('style', 'font-family: Courier; color: red');
+    isWordRight();
     buttonArea.html('').append(revealButton);
   } else {
       for (var k = 0; k < currentWordLength; k++){
@@ -133,13 +125,16 @@ function userHitsReturn(input, id){
 }
 
 function nextLetter(currentLetterInput){  
+
   // user inputs a key A through Z OR right arrow key, move one input to the right 
-  if (currentLetterInput !== "" && event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode == 39){
+  if ($(currentLetterInput).val() !== "" && event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode == 39){
     $(currentLetterInput).focusout().next().focus();
+    console.log('one ' + $(currentLetterInput).val());
   } 
-  // user inputs left arrow key OR delete key, move one input to the left
-  else if (currentLetterInput !== "" && event.keyCode == 37 || event.keyCode == 8){
-    $(currentLetterInput).focusout().prev().focus().val('');
+  
+  // user inputs left arrow key, move one input to the left
+  else if (event.keyCode == 37){
+    $(currentLetterInput).focusout().prev().focus();
   }
 }
 
