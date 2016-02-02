@@ -52,7 +52,6 @@ function beginGame(i){
 }
 
 function needAHint(){
-
   // if word is empty, show random letter
   if (isWordComplete() == false) {
     var randomIndex = Math.floor((Math.random() * currentWordLength));
@@ -127,20 +126,13 @@ function userHitsReturn(input, id){
 }
 
 function nextLetter(currentLetterInput){  
-
   // user inputs a key A through Z OR right arrow key, move one input to the right 
   if ($(currentLetterInput).val() !== "" && event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode == 39){
     $(currentLetterInput).focusout().next().focus();
-    console.log('one ' + $(currentLetterInput).val());
   } 
   // user inputs left arrow key, move one input to the left
   else if (event.keyCode == 37){
     $(currentLetterInput).focusout().prev().focus();
-  }
-
-  // user is focused on a non empty box and inputs A through Z, takes in new key input
-  else if ($(currentLetterInput).focus() && $(currentLetterInput).val() !== "" && event.keyCode >= 65 && event.keyCode <= 90){
-    $(currentLetterInput).val();
   }
 
 }
