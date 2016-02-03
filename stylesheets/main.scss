@@ -46,16 +46,19 @@ input:focus {
 }
 
 button {
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
   align-items: center;
   background-color: $beige;
   border-radius: 25px;
   border: 4px solid $outline;
   color: $darkgreen;
   display: block;
-  display:flex;
   height: 50px;
-  justify-content:center;
+  justify-content: center;
+  padding: 0;
   text-align: center;
+  vertical-align: middle;
   width: 136px;
 }
 

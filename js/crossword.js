@@ -69,6 +69,7 @@ function needAHint(){
         var currentLetter = $('#'+ k).val();
         if (currentLetter.toLowerCase() != currentWord[k]){
           $('#' + k).val(currentWord[k]).attr('style', 'font-family: Courier; color: red');
+          isWordRight();
           buttonArea.html('').append(revealButton);
           break;
       }
@@ -140,7 +141,6 @@ function nextLetter(currentLetterInput){
   else if (event.keyCode == 37){
     $(currentLetterInput).focusout().prev().focus();
   }
-
 }
 
 function nextWord(){
