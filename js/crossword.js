@@ -147,6 +147,10 @@ function nextLetter(currentLetterInput){
   else if (event.keyCode == 37){
     currentLetterInput.focusout().prev().focus();
   }
+  // user hits delete, move one input to the right
+  else if (event.keyCode == 8){
+    currentLetterInput.focusout().prev().focus();
+  }
 }
 
 function nextWord(){
@@ -164,7 +168,6 @@ function nextWord(){
 function inputLetter(){
   if (isWordComplete() == true){
     isWordRight();
-    console.log('just checked to see if its right');
   } 
 }
 
