@@ -77,9 +77,10 @@ function beginGame(i){
   currentClue       = words[current].clue;
   currentWord       = words[current].word;
   currentWordLength = currentWord.length;
+  var whereWeAt     = (i + 1) + '/' + words.length + ' clues';
 
   $('form').html('');           // clears inputs off page
-  message.html('');             // clears message off page
+  message.html(whereWeAt);             // clears message off page
   buttonArea.html('');          // clears button area
 
   $('#clue').html(currentClue); // show current clue
@@ -100,13 +101,15 @@ function needAHint(){
   if (isWordComplete() == false) {
     var randomIndex = Math.floor((Math.random() * currentWordLength));
     $('#' + randomIndex).val(currentWord[randomIndex]).attr('style', 'font-family: Courier; color: red');
-    isWordRight();
+    // isWordRight();
+    console.log('needa hint1')
     buttonArea.html('').append(revealButton);
   } else {
       for (var k = 0; k < currentWordLength; k++){
         var currentLetter = $('#'+ k).val();
         if (currentLetter.toLowerCase() != currentWord[k]){
           $('#' + k).val(currentWord[k]).attr('style', 'font-family: Courier; color: red');
+          console.log('needa hint2')
           isWordRight();
           buttonArea.html('').append(revealButton);
           break;
@@ -122,7 +125,7 @@ function revealWord(){
       currentLetter.val(currentWord[b]).attr('style', 'font-family: Courier; color: red');
     }
   }
-  message.html('');
+  message.html('whew!');
   buttonArea.html('').append(nextButton);
 }
 
