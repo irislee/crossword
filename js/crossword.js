@@ -48,7 +48,7 @@ var words = [
   {word: 'ado',     clue: 'brouhaha'},
   {word: 'spa',     clue: 'sauna locale'},
   {word: 'else',    clue: 'otherwise'},
-  {word: 'ante',    clue: 'initial stake'},
+  {word: 'ante',    clue: 'initial stake'}
 ];
 
 var numWords  = words.length;
