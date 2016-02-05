@@ -133,13 +133,19 @@ function userHitsReturn(input, id){
 }
 
 function nextLetter(currentLetterInput){  
-  // user inputs a key A through Z OR right arrow key, move one input to the right 
-  if ($(currentLetterInput).val() !== "" && event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode == 39){
-    $(currentLetterInput).focusout().next().focus();
+  // if you hit a key and it's different than what's in the input, replace old value with new value
+  if (currentLetterInput.val() !== String.fromCharCode(event.keyCode).toLowerCase() && event.keyCode >= 65 && event.keyCode <= 90){
+    currentLetterInput.val(String.fromCharCode(event.keyCode).toLowerCase());
+    currentLetterInput.focusout().next().focus();
+    isWordRight();
   } 
+  // user inputs a key A through Z OR right arrow key, move one input to the right 
+  else if (currentLetterInput.val() !== "" && event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode == 39){
+    currentLetterInput.focusout().next().focus();
+  }
   // user inputs left arrow key, move one input to the left
   else if (event.keyCode == 37){
-    $(currentLetterInput).focusout().prev().focus();
+    currentLetterInput.focusout().prev().focus();
   }
 }
 
@@ -157,7 +163,8 @@ function nextWord(){
 
 function inputLetter(){
   if (isWordComplete() == true){
-    isWordRight();  
+    isWordRight();
+    console.log('just checked to see if its right');
   } 
 }
 
