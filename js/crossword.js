@@ -80,7 +80,7 @@ function beginGame(i){
   var whereWeAt     = (i + 1) + '/' + words.length + ' clues';
 
   $('form').html('');           // clears inputs off page
-  message.html(whereWeAt);             // clears message off page
+  message.html(whereWeAt);      // clears message off page
   buttonArea.html('');          // clears button area
 
   $('#clue').html(currentClue); // show current clue
@@ -102,6 +102,7 @@ function needAHint(){
     var randomIndex = Math.floor((Math.random() * currentWordLength));
     $('#' + randomIndex).val(currentWord[randomIndex]).attr('style', 'font-family: Courier; color: red');
     buttonArea.html('').append(revealButton);
+    message.html('');
   } else {
       for (var k = 0; k < currentWordLength; k++){
         var currentLetter = $('#'+ k).val();
@@ -109,6 +110,7 @@ function needAHint(){
           $('#' + k).val(currentWord[k]).attr('style', 'font-family: Courier; color: red');
           isWordRight();
           buttonArea.html('').append(revealButton);
+          message.html('');
           break;
       }
     }
@@ -135,11 +137,7 @@ function isWordComplete(){
     }
   }
 
-  if (userWordLength == currentWordLength){
-    return true;
-  } else {
-    return false;
-  }
+  return userWordLength == currentWordLength; 
 }
 
 function isWordRight(){
@@ -170,23 +168,24 @@ function userHitsReturn(input, id){
   });
 }
 
-function nextLetter(currentLetterInput){  
+function nextLetter(currentLetterInput){ 
+
   // if you hit a key and it's different than what's in the input, replace old value with new value
-  if (currentLetterInput.val() !== String.fromCharCode(event.keyCode).toLowerCase() && event.keyCode >= 65 && event.keyCode <= 90){
-    currentLetterInput.val(String.fromCharCode(event.keyCode).toLowerCase());
+  if (currentLetterInput.val() !== String.fromCharCode(event.which).toLowerCase() && event.which >= 65 && event.which <= 90){
+    currentLetterInput.val(String.fromCharCode(event.which).toLowerCase());
     currentLetterInput.focusout().next().focus();
     isWordRight();
   } 
   // user inputs a key A through Z OR right arrow key, move one input to the right 
-  else if (currentLetterInput.val() !== "" && event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode == 39){
+  else if (currentLetterInput.val() !== "" && event.which >= 65 && event.which <= 90 || event.which == 39){
     currentLetterInput.focusout().next().focus();
   }
   // user inputs left arrow key, move one input to the left
-  else if (event.keyCode == 37){
+  else if (event.which == 37){
     currentLetterInput.focusout().prev().focus();
   }
   // user hits delete, move one input to the right
-  else if (event.keyCode == 8){
+  else if (event.which == 8){
     currentLetterInput.focusout().prev().focus();
   }
 }
