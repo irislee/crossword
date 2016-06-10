@@ -108,7 +108,6 @@ function needAHint(){
         var currentLetter = $('#'+ k).val();
         if (currentLetter.toLowerCase() != currentWord[k]){
           $('#' + k).val(currentWord[k]).attr('style', 'font-family: Courier; color: red');
-          isWordRight();
           buttonArea.html('').append(revealButton);
           message.html('');
           break;
@@ -174,7 +173,6 @@ function nextLetter(currentLetterInput){
   if (currentLetterInput.val() !== String.fromCharCode(event.which).toLowerCase() && event.which >= 65 && event.which <= 90){
     currentLetterInput.val(String.fromCharCode(event.which).toLowerCase());
     currentLetterInput.focusout().next().focus();
-    isWordRight();
   } 
   // user inputs a key A through Z OR right arrow key, move one input to the right 
   else if (currentLetterInput.val() !== "" && event.which >= 65 && event.which <= 90 || event.which == 39){
